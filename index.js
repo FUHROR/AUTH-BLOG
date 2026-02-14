@@ -28,23 +28,15 @@
 // startServer();
 
 import express from "express";
+import dotenv from "dotenv";
+import bootstrap from "./src/appcontroller.js";
 
-import { connectDB } from "./src/DB/connection.js";
+dotenv.config();
 
 const app = express();
 
-app.use(express.json());
-console.log("DB_NAME:", process.env.DB_NAME);
-console.log("DB_USER:", process.env.DB_USER);
-console.log("DB_HOST:", process.env.DB_HOST);
-
-// اتصال الداتا بيز
-connectDB();
-
-// Route تجريبي
-app.get("/", (req, res) => {
-  res.send("API Running 🚀");
-});
+// نشغل كل الإعدادات والراوتات
+await bootstrap(app, express);
 
 const PORT = process.env.PORT || 3000;
 
