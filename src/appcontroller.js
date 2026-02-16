@@ -32,7 +32,7 @@ const bootstrap = async (app, express) => {
   // 🔥 CORS (مهم جدًا عشان Angular)
   app.use(
     cors({
-      origin: ["http://localhost:4200", "https://your-frontend-domain.com"],
+      origin: ["http://localhost:4200", "https://oral-vision.vercel.app"],
       credentials: true,
     }),
   );
